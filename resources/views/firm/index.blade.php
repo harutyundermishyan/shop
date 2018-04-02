@@ -8,6 +8,7 @@
         <thead>
             <tr>
                 <th>Անուն</th>
+                <th>Հեռախոսահամար</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -17,6 +18,9 @@
             <tr>
                 <th>
                     <a href="{{ url('/firms/'.$firm->id) }}">{{ $firm->name }}</a>
+                </th>
+                <th>
+                    <span> {{ $firm->phone }}</span>
                 </th>
                 <th>
                     <a href="{{ url('/firms/'.$firm->id.'/edit') }}" class="btn btn-primary w-100">Խմբագրել</a>

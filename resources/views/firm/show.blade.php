@@ -3,6 +3,7 @@
     <div class="card">
         <div class="card-header">
             <h2> {{ $firm->name }}</h2>
+            <h2> {{ $firm->phone }}</h2>
         </div>
         <div class="card-body">
             <ul>

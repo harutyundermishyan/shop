@@ -38,6 +38,7 @@ class FirmController extends Controller
     {
         $firm  = Firm::create([
             'name' => $request->name,
+            'phone' => $request->phone,
         ]);
         if ($firm) {
             return redirect()->back()->with('success', 'Product created successfully');
