@@ -50,9 +50,13 @@ class ProductController extends Controller
             'percent' =>  $request->percent,
             'first_price' =>  $request->first_price,
             'last_price' =>  $request->last_price,
-            'date' =>  $request->date
+            'date' =>  $request->date,
+            'description' =>  $request->description
         ]);
         if ($product) {
+            session(['firm' => $request->firm]);
+            session(['category' => $request->category]);
+
             return redirect()->back()->with('success', 'Product created successfully');
         }
         return redirect()->back()->with('error', 'Error');
@@ -118,11 +122,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::destroy($id);
-        $delete = $product->delete();
-        if ($delete) {
-            return redirect()->back()->with('success', 'Product deleted successfully');
+        $product = Product::find($id);
+        if ($product) {
+            $delete = $product->delete();
+            if ($delete) {
+                return redirect()->back()->with('success', 'Product deleted successfully');
+            }
         }
+       
         return redirect()->back()->with('error', 'Error');
     }
 }

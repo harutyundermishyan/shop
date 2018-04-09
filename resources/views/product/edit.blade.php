@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="number">Քանակ</label>
-            <input type="number" class="form-control" id="number" name="number" required value="{{ $product->number }}">
+            <input type="number" class="form-control" id="number" name="number" step="any" required value="{{ $product->number }}">
         </div>
         <div class="form-group">
             <label for="percent">Տոկոս</label>
@@ -43,6 +43,10 @@
         <div class="form-group">
             <label for="date">Ամսաթիվ</label>
             <input type="date" class="form-control" id="date" name="date" required value="{{ $product->date }}">
+        </div>
+        <div class="form-group">
+            <label for="description"> Նկարագրություն</label>
+            <textarea class="form-control" id="description" name="description">{{ $product->description }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Ավելացնել</button>
     </form>
