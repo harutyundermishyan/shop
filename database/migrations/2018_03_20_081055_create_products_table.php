@@ -18,11 +18,12 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('firm_id');
             $table->string('name');
-            $table->integer('number');
+            $table->decimal('number');
             $table->integer('first_price');
             $table->integer('last_price');
             $table->integer('percent');
             $table->date('date')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

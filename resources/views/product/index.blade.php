@@ -15,6 +15,7 @@
             <th>Վաճառքի Գին</th>
             <th>Տոկոս</th>
             <th>Ամսաթիվ</th>
+            <th>Նկարագրություն</th>
             <th></th>
             <th></th>
         </tr>
@@ -36,6 +37,7 @@
                 <th>{{ $product->last_price }}</th>
                 <th>{{ $product->percent }}</th>
                 <th>{{ $product->date }}</th>
+                <th>{{ $product->description }}</th>
                 <th>
                     <a href="{{ url('products/'.$product->id.'/edit') }}" class="btn btn-primary">Խմբագրել</a>
                 </th>

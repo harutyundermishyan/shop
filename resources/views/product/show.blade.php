@@ -35,4 +35,8 @@
         <label for="date">Ամսաթիվ: &nbsp;</label>
         <span> {{ $product->date }}</span>
     </div>
+    <div class="form-group">
+        <label for="date">Նկարագրություն &nbsp;</label>
+        <span> {{ $product->description }}</span>
+    </div>
 @endsection
