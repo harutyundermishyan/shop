@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -14,5 +15,10 @@ class Product extends Model
 
     public function category(){
         return $this->belongsTo('\App\Category');
+    }
+
+    public function getDateAttribute($value)
+    {
+        return Carbon::parse($value)->format('d-m-Y');
     }
 }

@@ -40,7 +40,7 @@ class CategoryController extends Controller
             'name' => $request->name,
         ]);
         if ($category) {
-            return redirect()->back()->with('success', 'Product created successfully');
+            return redirect()->back()->with('success', 'Category created successfully');
         }
         return redirect()->back()->with('error', 'Error');
     }

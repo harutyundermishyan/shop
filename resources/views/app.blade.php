@@ -18,6 +18,13 @@
         .nav-link {
             border: 1px solid #444;
         }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            width: 50%!important;
+            margin: 0 auto 20px!important;
+        }
     </style>
 </head>
 <body>
