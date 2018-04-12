@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->decimal('number');
             $table->integer('first_price');
             $table->integer('last_price');
-            $table->integer('percent');
+            $table->integer('percent')->nullable();
             $table->date('date')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

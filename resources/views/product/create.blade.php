@@ -1,6 +1,5 @@
 @extends('app')
 @section('content')
-
     <form action="{{ url('/products') }}" method="POST">
         @csrf
         <h2>Ավելացնել Ապրանք</h2>
@@ -42,13 +41,13 @@
         </div>
         <div class="form-group">
             <label for="date">Ամսաթիվ</label>
-            <input type="date" class="form-control" id="date" name="date" required>
+            <input type="date" class="form-control" id="date" name="date" value="{{ (session()->get('date')) ? session()->get('date') : '' }}" required>
         </div>
         <div class="form-group">
             <label for="description"> Նկարագրություն</label>
             <textarea class="form-control" id="description" name="description"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Ավելացնել</button>
+        <button type="submit" class="btn btn-primary margin-277">Ավելացնել</button>
     </form>
 
 @endsection

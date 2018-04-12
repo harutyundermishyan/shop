@@ -56,6 +56,7 @@ class ProductController extends Controller
         if ($product) {
             session(['firm' => $request->firm]);
             session(['category' => $request->category]);
+            session(['date' => $request->date]);
 
             return redirect()->back()->with('success', 'Product created successfully');
         }
@@ -129,7 +130,59 @@ class ProductController extends Controller
                 return redirect()->back()->with('success', 'Product deleted successfully');
             }
         }
-       
+
         return redirect()->back()->with('error', 'Error');
+    }
+    public function daySum(Request $request)
+    {
+        $sum = [];
+        $day = $request->day;
+        $products = Product::where('date', $day)->get();
+        if (count($products)) {
+            $day_first_price_sum = [];
+            $day_last_price_sum = [];
+            foreach($products as $product){
+                $sum['day_first_price_list'][] = $product->name . ' = ' . $product->first_price.'դր' . ' * ' . $product->number;
+                $sum['day_last_price_list'][] = $product->name . ' = ' .$product->last_price.'դր' . ' * ' . $product->number;
+                $day_first_price_sum[] = $product->first_price * $product->number;
+                $day_last_price_sum[] = $product->last_price * $product->number;
+            }
+
+            $sum['day_first_price_sum'] = array_sum($day_first_price_sum);
+            $sum['day_last_price_sum'] = array_sum($day_last_price_sum);
+
+            return view('sum.day',compact('sum','day'));
+        }
+        else{
+            $error = 'not found';
+            return view('sum.day',compact('day','error'));
+        }
+    }
+
+    public function manyDaySum(Request $request)
+    {
+        $from = $request->from;
+        $to = $request->to;
+        $sum_month = [];
+        $products = Product::whereBetween('date', [$from, $to])->orderBy('date')->get();
+        if (count($products)) {
+            $day_first_price_sum = [];
+            $day_last_price_sum = [];
+            foreach($products as $product){
+                $sum_month['day_first_price_list'][] = $product->name . ' = ' . $product->first_price.'դր' . ' * ' . $product->number . ' | ' . $product->date;
+                $sum_month['day_last_price_list'][] = $product->name . ' = ' .$product->last_price.'դր' . ' * ' . $product->number . ' | ' . $product->date;
+                $day_first_price_sum[] = $product->first_price * $product->number;
+                $day_last_price_sum[] = $product->last_price * $product->number;
+            }
+
+            $sum_month['day_first_price_sum'] = array_sum($day_first_price_sum);
+            $sum_month['day_last_price_sum'] = array_sum($day_last_price_sum);
+
+            return view('sum.month',compact('sum_month','from','to'));
+        }
+        else{
+            $error = 'not found';
+            return view('sum.month',compact('from','to','error'));
+        }
     }
 }

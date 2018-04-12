@@ -48,7 +48,7 @@
             <label for="description"> Նկարագրություն</label>
             <textarea class="form-control" id="description" name="description">{{ $product->description }}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Ավելացնել</button>
+        <button type="submit" class="btn btn-primary margin-277">Ավելացնել</button>
     </form>
 
 @endsection

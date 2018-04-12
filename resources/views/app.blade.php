@@ -25,6 +25,12 @@
             width: 50%!important;
             margin: 0 auto 20px!important;
         }
+        .margin-277 {
+            margin-left: 277px;
+        }
+        ul {
+            list-style: none;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +45,12 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ isset($firms) ? 'active' : '' }}" href="{{ url('/firms')}}">Ֆիրմաներ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ isset($sum) ? 'active' : '' }}" href="{{ url('/product/sum/day')}}">Օրվա ընդունված ապրանքների գումար</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ isset($sum_month) ? 'active' : '' }}" href="{{ url('/product/sum/month')}}">Ամսվա ընդունված ապրանքների գումար</a>
             </li>
         </ul>
     </div>
