@@ -27,10 +27,10 @@
             <label for="number">Քանակ</label>
             <input type="number" class="form-control" id="number" name="number" step="any" required>
         </div>
-        <div class="form-group">
-            <label for="percent">Տոկոս</label>
-            <input type="number" class="form-control" id="percent" name="percent" required>
-        </div>
+        {{--<div class="form-group">--}}
+            {{--<label for="percent">Տոկոս</label>--}}
+            {{--<input type="number" class="form-control" id="percent" name="percent" required>--}}
+        {{--</div> --}}
         <div class="form-group">
             <label for="first_price">Ընդունման Գին</label>
             <input type="number" class="form-control" id="first_price" name="first_price" required>

@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct(){
+//        dd(1);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +50,7 @@ class ProductController extends Controller
             'category_id' => $request->category,
             'firm_id' =>  $request->firm,
             'number' =>  $request->number,
-            'percent' =>  $request->percent,
+            'percent' =>  0,
             'first_price' =>  $request->first_price,
             'last_price' =>  $request->last_price,
             'date' =>  $request->date,

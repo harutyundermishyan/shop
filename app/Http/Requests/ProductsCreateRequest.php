@@ -28,7 +28,6 @@ class ProductsCreateRequest extends FormRequest
             'category' => 'required',
             'firm' => 'required',
             'number' => 'required',
-            'percent' => 'required',
             'first_price' => 'required',
             'last_price' => 'required',
         ];

@@ -19,10 +19,10 @@
         <label for="number">Քանակ: &nbsp;</label>
         <span> {{ $product->number }}</span>
     </div>
-    <div class="form-group">
-        <label for="percent">Տոկոս: &nbsp;</label>
-        <span> {{ $product->percent }}</span>
-    </div>
+    {{--<div class="form-group">--}}
+        {{--<label for="percent">Տոկոս: &nbsp;</label>--}}
+        {{--<span> {{ $product->percent }}</span>--}}
+    {{--</div>--}}
     <div class="form-group">
         <label for="first_price">Ընդունման Գին: &nbsp;</label>
         <span> {{ $product->first_price }}</span>
