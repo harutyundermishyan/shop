@@ -1,23 +1,32 @@
 @extends('app')
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ url('/products') }}" method="POST">
         @csrf
         <h2>Ավելացնել Ապրանք</h2>
         <div class="form-group">
-            <label for="name">Անուն</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+            <label for="product-name">Անուն</label>
+            <input type="text" class="form-control" id="product-name" name="name" required>
         </div>
         <div class="form-group">
-            <label for="firm">Ֆիրմա</label>
-            <select class="form-control" id="firm" name="firm">
+            <label for="firm-name">Ֆիրմա</label>
+            <select class="form-control" id="firm-name" name="firm">
                 @foreach($firms as $firm)
                     <option value="{{ $firm->id }}" {{ ($firm->id == session()->get('firm') ? 'selected' : '') }}>{{ $firm->name }}</option>
                 @endforeach
             </select>
         </div>
         <div class="form-group">
-            <label for="category">Կատեգորիա</label>
-            <select class="form-control" id="category" name="category">
+            <label for="category-name">Կատեգորիա</label>
+            <select class="form-control" id="category-name" name="category">
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}" {{ ($category->id == session()->get('category') ? 'selected' : '') }}>{{ $category->name }}</option>
                 @endforeach
@@ -49,5 +58,21 @@
         </div>
         <button type="submit" class="btn btn-primary margin-277">Ավելացնել</button>
     </form>
+    <div id="products-list" class="d-none">
+
+    </div>
+    <style>
+        #products-list {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            background: #fff;
+            border: 1px solid #000;
+            color: #000;
+            max-height: 1000px;
+            overflow: auto;
+        }
+    </style>
 
 @endsection

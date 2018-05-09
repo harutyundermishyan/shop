@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>SHOP</title>
 
@@ -69,14 +70,24 @@
 
 <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('datatable/datatables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 <script>
-    $('#products').DataTable();
+    $('#products').DataTable( {
+        "order": [[ 6, "desc" ]]
+    });
 
     $('.delete_btn').click(function(e){
+        alert('ապրանք');
         if(!confirm("Ջնջել?")){
             e.preventDefault()
         }
-    })
+    });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 </script>
 </body>
 

@@ -13,7 +13,7 @@
             <th>Քանակ</th>
             <th>Ընդունման Գին</th>
             <th>Վաճառքի Գին</th>
-            <th>Տոկոս</th>
+            <th class="d-none">Id</th>
             <th>Ամսաթիվ</th>
             <th>Նկարագրություն</th>
             <th></th>
@@ -35,7 +35,7 @@
                 <th>{{ $product->number }}</th>
                 <th>{{ $product->first_price }}</th>
                 <th>{{ $product->last_price }}</th>
-                <th>{{ $product->percent }}</th>
+                <th class="d-none">{{ $product->id }}</th>
                 <th>{{ $product->date }}</th>
                 <th>{{ $product->description }}</th>
                 <th>

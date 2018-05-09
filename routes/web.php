@@ -24,6 +24,7 @@ Route::get('/product/sum/month', function(){
 });
 Route::post('/product/sum/day', 'ProductController@daySum');
 Route::post('/product/sum/month', 'ProductController@manyDaySum');
+Route::post('/product/search', 'ProductController@searchProduct');
 
 
 

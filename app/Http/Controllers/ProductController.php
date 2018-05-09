@@ -188,4 +188,22 @@ class ProductController extends Controller
             return view('sum.month',compact('from','to','error'));
         }
     }
+
+    public function searchProduct(Request $request)
+    {
+        $name = $request->name;
+        $firm = $request->firm;
+        $category = $request->category;
+        $products = Product::where('category_id', $category)->where('firm_id', $firm)->where('name', $name)->get();
+        if (count($products)){
+            return response()->json([
+                'status' => 'success',
+                'products' => $products
+            ],200);
+        } else {
+            return response()->json([
+                'status' => 'error'
+            ],403);
+        }
+    }
 }
